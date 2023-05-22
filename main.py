@@ -4,12 +4,12 @@ from PIL import Image
 import pytesseract
 import os
 
-thePdfFile = './docs/急救手册-jxuspt.pdf'
+thePdfFile = './docs/file.pdf'
 # Store Pdf with convert_from_path function
-images = convert_from_path({thePdfFile})
+images = convert_from_path(thePdfFile)
 text = ''
 
-numOfPdf = range(len(images))
+numOfPdf = range(len(images)).stop
 withoutArr = []
 
 
@@ -31,7 +31,7 @@ for i, image in enumerate(images):
         # OCR the image
         _img = Image.open(imgLink)
 
-        tmpText = pytesseract.image_to_string(_img, lang='chi_sim+eng')
+        tmpText = pytesseract.image_to_string(_img, lang='chi_sim+eng') #chi_tra+chi_sim+eng
         tmpText = tmpText.replace("圖", "")
         tmpText = tmpText.replace(" ", "")
 
@@ -43,7 +43,7 @@ for i, image in enumerate(images):
         os.remove(imgLink)
 
 
-# print(text)
+print("DONE")
 with open('./data-out.txt', 'w') as file:
     file.write(text)
     
