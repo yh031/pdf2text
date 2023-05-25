@@ -16,7 +16,7 @@ withoutArr = []
 # for i in range(len(images)):
 for i, image in enumerate(images):
     tmpText = ''
-    imgLink = './tmp/page-' + str(i) + '.jpg'
+    imgLink = './out/page-' + str(i) + '.jpg'
 
     print(f"looking paged: {i}/{numOfPdf} | {round(i / numOfPdf * 100, 2)} %")
     
